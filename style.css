@@ -1,7 +1,20 @@
-#main-div{
-    border: 1px solid red;
-}
+
 
 img{
-    width: 300px;
+    width: 100%;
+    display: flex;
+}
+
+.card{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 8px;
+    padding: 4px;
+}
+
+.header-buttons{
+    display:flex;
+    flex-direction: column;
 }
