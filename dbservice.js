@@ -4,7 +4,7 @@ class DBService {
     static getShows() {
         let url = DBService.URL
         return fetch(url, {method: "get" })
-            .then((resp) => resp.json())
+            .then((resp) =>{console.log(resp); return resp.json()})
         }
 
 
@@ -20,8 +20,15 @@ class DBService {
         .then(res => this.convertShow(res));
     }
 
-    static convertShow(obj){
-        const newShow = new Show(obj.title, obj.author, obj.isOver, obj.imageUrl, obj.upvotes, obj.downvotes);
+    static convertShows(objArray){
+        let newShows = []
+        for (let i = 0; i < objArray.length; i++) {
+            const obj = objArray[i];
+            const newShow = new Show(obj.title, obj.author, obj.isOver, obj.imageUrl, obj.upvotes, obj.downvotes);
+            newShows.push(newShow);
+        }
+        
+        return newShows;
     }
 
 

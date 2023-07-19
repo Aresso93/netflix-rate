@@ -14,7 +14,9 @@ function render() {
 
     if (manager.shows) {
         for (const show of manager.shows) {
-            console.log(show.imageUrl);
+           
+            //DBService.convertShows(manager.shows)
+
             const showCard = document.createElement("div");
             showCard.classList.add('card')
             const title = document.createElement("strong");
@@ -68,7 +70,7 @@ function render() {
 }
 
 function isOverFunction(show) {
-    if (show.isOver === true) {
+    if (show.isOver === "true") {
         return 'Stato dello show: terminato'
     } else return 'Stato dello show: in corso'
 }
