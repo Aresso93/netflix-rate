@@ -13,9 +13,8 @@ function render() {
     main.innerHTML = "";
 
     if (manager.shows) {
-        for (const show of manager.shows) {
-           
-            //DBService.convertShows(manager.shows)
+        for (let i = 0; i < manager.shows.length; i++) {
+            const show = manager.shows[i];
 
             const showCard = document.createElement("div");
             showCard.classList.add('card')

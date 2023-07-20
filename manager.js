@@ -26,7 +26,7 @@ class Manager{
     addUpvote(i){
         const show = this.shows[i];
         show.upvotes = show.upvotes +1;
-        StorageService.saveData(this.shows);
+        DBService.upvoteShow(show);
     }
 
 }
