@@ -1,43 +1,53 @@
-class DBService {
-    static BASE_URL = 'https://64b512c9f3dbab5a95c6a4ff.mockapi.io/'
-
-    static getShows() {
-        let url = DBService.BASE_URL + 'shows'
-        return fetch(url, {method: "get" })
-            .then(resp =>(resp.json()))
-        }
+class DBService{
 
 
-    static upvoteShow(show){
+    static getAllShows(){
 
-        const upvoteUrl = this.BASE_URL + 'shows/' + show.id;
-        return fetch(upvoteUrl, {method: 'put',
-        body: JSON.stringify(show),
-        headers: {
-            'content-type':'application/json'
-        }})
-        .then(resp => resp.json())
-        .then(res => this.convertShows(res));
-    }
-
-    static convertShows(objArray){
-        let newShows = []
-        for (let i = 0; i < objArray.length; i++) {
-            const obj = objArray[i];
-            const newShow = new Show(obj.title, obj.author, obj.isOver, obj.imageUrl, obj.upvotes, obj.downvotes, obj.id);
-            newShows.push(newShow);
-        }
-        
-        return newShows;
+        const url = 'https://64b512c9f3dbab5a95c6a4ff.mockapi.io/shows';
+        return fetch(url).then((resp) => resp.json());
     }
 
 
+    //UPDATE DEGLI SHOW
+
+    static updateShow(show){
+
+        const updateUrl =
+        'https://64b512c9f3dbab5a95c6a4ff.mockapi.io/shows/' + show.id;
+
+        return fetch(updateUrl, {
+            method: 'put',
+            body: JSON.stringify(show),
+            headers: {"content-type":"application/json"},
+        }).then((resp) => resp.json());
+
+    }
 
 
+    //CREATE DEGLI SHOW
 
+    static createShow(show){
 
+        const createUrl = 'https://64b512c9f3dbab5a95c6a4ff.mockapi.io/shows';
 
+        return fetch(createUrl, {
+            method: 'post',
+            body: JSON.stringify(show),
+            headers: {"content-type":"applicati0n/json"},
+        }).then((resp) => resp.json());
+    }
 
+    //FUNZIONI DI UPVOTE E DOWNVOTE
+
+    static upvote(show){
+        show.upvotes++;
+        return this.updateShow(show);
+    }
+
+    static downvote(show){
+        show.downvotes++;
+        return this.updateShow(show);
+    }
 
 
 }

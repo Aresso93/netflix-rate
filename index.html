@@ -7,19 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>MOCKFLIX</h1>
-        <div class="header-buttons">
-        <button onclick="orderShowByName()">Ordina per nome</button>
-        <button>Ordina dal valutato meglio al valutato peggio</button>
-        <button>Ordina dal valutato peggio al valutato meglio</button>
-        </div>
-    </header>
+    <div>
+        <dialog id="create-dialog">
+            <form>
+                <form id="create-form" name="create" onsubmit="sendData(event)">
+                    <div>
+                        <label for="title">Inserisci il titolo</label>
+                        <input type="text" name="title" id="title" required>
+                    </div>
+                    <div>
+                        <label for="author">Inserisci l'autore</label>
+                        <input type="text" name="author" id="author" required>      
+                    </div>
+                    <div>
+                        <label for="imageUrl">Inserisci l'url dell'immagine</label>
+                        <input type="text" name="imageUrl" id="imageUrl" required>      
+                    </div>
+                    <div>
+                        <label for="isOver">spunta se la serie è conclusa</label>
+                        <input type="checkbox" name="isOver" id="isOver" required>
+                    </div>
+                    <!-- <input style="visibility: hidden;" type="number" name="upvotes" id="upvotes" value="0">
+                    <input style="visibility: hidden;" type="number" name="downvotes" id="downvotes" value="0"> -->
+                    <button type="submit">invia</button>
+                </form>
+            </form>
+          </dialog>
+          <p>
+            <button id="showDialog">Aggiungi uno show!</button>
+          </p>
+          <output></output>
+    
+    </div>
+    <div id="app">
 
-    <div id="main-div"></div>
+
+    </div>
+    <footer>
+
+    </footer>
 </body>
-<script src="./show.js"></script>
 <script src="./dbservice.js"></script>
-<script src="./manager.js"></script>
+<script src="./app-controller.js"></script>
 <script src="./main.js"></script>
 </html>  
+

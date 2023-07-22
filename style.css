@@ -1,11 +1,9 @@
-
-
 img{
     width: 100%;
     display: flex;
 }
 
-.card{
+.show-card{
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -14,7 +12,26 @@ img{
     padding: 4px;
 }
 
-.header-buttons{
+html{
+
+    background-color: antiquewhite;
+}
+
+#btn-container{
     display:flex;
     flex-direction: column;
+    gap: 12px;
+}
+
+.upvote-span{
+    text-align: center;
+}
+
+.downvote-span{
+    text-align: center;
+}
+
+.add-button{
+    width: 200px;
+    height: 200px;
 }
