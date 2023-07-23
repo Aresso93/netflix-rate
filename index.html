@@ -10,7 +10,7 @@
     <div>
         <dialog id="create-dialog">
             <form>
-                <form id="create-form" name="create" onsubmit="sendData(event)">
+                <form id="create-form" name="create" onsubmit="main.sendData(event)">
                     <div>
                         <label for="title">Inserisci il titolo</label>
                         <input type="text" name="title" id="title" required>
@@ -27,14 +27,14 @@
                         <label for="isOver">spunta se la serie è conclusa</label>
                         <input type="checkbox" name="isOver" id="isOver" required>
                     </div>
-                    <!-- <input style="visibility: hidden;" type="number" name="upvotes" id="upvotes" value="0">
-                    <input style="visibility: hidden;" type="number" name="downvotes" id="downvotes" value="0"> -->
+                    <input style="visibility: hidden;" type="number" name="upvotes" id="upvotes" value="0">
+                    <input style="visibility: hidden;" type="number" name="downvotes" id="downvotes" value="0">
                     <button type="submit">invia</button>
                 </form>
             </form>
           </dialog>
           <p>
-            <button id="showDialog">Aggiungi uno show!</button>
+            <button id="show-dialog">Aggiungi uno show!</button>
           </p>
           <output></output>
     
@@ -46,9 +46,10 @@
     <footer>
 
     </footer>
+    <script src="./dbservice.js"></script>
+    <script src="./app-controller.js"></script>
+    <script src="./main.js"></script>
 </body>
-<script src="./dbservice.js"></script>
-<script src="./app-controller.js"></script>
-<script src="./main.js"></script>
+
 </html>  
 

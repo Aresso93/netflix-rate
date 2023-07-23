@@ -15,7 +15,6 @@ init(){
 }
 
 
-
 render(){
 
     const appContainer = document.getElementById("app");
